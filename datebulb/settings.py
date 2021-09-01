@@ -76,14 +76,14 @@ WSGI_APPLICATION = 'datebulb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'datebulb',
+        'NAME': 'test_database',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': '127.0.0.1',
             'port': 27017,
-            'username': 'robot',
-            'password': 'robot13!',
-            'authSource': 'datebulb',
+            'username': 'test_user',
+            'password': 'password',
+            'authSource': 'test_database',
             'authMechanism': 'SCRAM-SHA-1'
         }
     }
