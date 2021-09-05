@@ -19,7 +19,7 @@ class ViewTestBase(APITestCase):
         }
         return super().setUp()
 
-    # defer to APITestCase destruction
+    # defer to APITestCase destruction ggs
     def tearDown(self):
         return super().tearDown()
 
