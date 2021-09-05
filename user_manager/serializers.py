@@ -1,12 +1,11 @@
 from django.contrib.auth.models import User, Group
-from idea_manager.models import DateIdea
 from rest_framework import serializers
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups','password']
+        fields = ['url', 'username', 'email', 'groups', 'password']
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
