@@ -6,6 +6,7 @@ from idea_manager import views as idea_views
 router = routers.DefaultRouter()
 router.register(r'users', user_views.UserViewSet)
 router.register(r'groups', user_views.GroupViewSet)
+router.register(r'dateideas', idea_views.DateIdeaViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

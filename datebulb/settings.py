@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@2k3lmc0d4y7e3kxx*g7yw8hekvlynnr!d)lg7e_l@-ycp0e5z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'datebulb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'test_database',
+        'NAME': 'test_db',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': '127.0.0.1',
             'port': 27017,
-            'username': 'test_user',
-            'password': 'password',
-            'authSource': 'test_database',
+            'username': 'test',
+            'password': 'test',
+            'authSource': 'test_db',
             'authMechanism': 'SCRAM-SHA-1'
         }
     }
