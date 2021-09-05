@@ -11,7 +11,7 @@ class SerializerTestBase(APITestCase):
         return super().tearDown()
 
 
-# Test that exmplple user object is correctly serialized
+# Test that example user object is correctly serialized
 
 # Test Pagination
 
