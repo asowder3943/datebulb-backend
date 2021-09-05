@@ -1,10 +1,8 @@
 from rest_framework.test import APITestCase
 from django.urls import reverse
-# Better print() method
 from icecream import ic
 
 
-# Base Class for the Views Test Cases - declares protected variables accessable by any child case
 class ViewTestBase(APITestCase):
 
     def setUp(self):
@@ -27,8 +25,41 @@ class ViewTestBase(APITestCase):
 
 
 class TestUserViewset(ViewTestBase):
+
+    """
+    User List Test Cases
+    """
+
     def test_user_list_get_no_auth_blank(self):
-        ic("Running user list no auth get case....")
+        ic("Testing UserViewSet: Unauthenticated get request")
         # should return forbiddden as unauthorized user cannot view other users
         response = self.client.get(self.user_url)
         self.assertEqual(response.status_code, 403)
+
+    # Test Blank get with auth
+
+    # Test post with no auth
+
+    # test post with auth
+
+    """
+    User Detail Test Cases
+    """
+
+    # Test get no auth
+
+    # Test get with with auth
+
+    # Test get with owner auth
+
+    # Test update no auth
+
+    # Test update with with auth
+
+    # Test update with owner auth
+
+    # Test delete no auth
+
+    # Test delete with with auth
+
+    # Test delete with owner auth
