@@ -1,44 +1,34 @@
-from django.http import response
-from user_manager.tests.test_setup import TestSetUp
+from rest_framework.test import APITestCase
+from django.urls import reverse
+# Better print() method
+from icecream import ic
 
 
-"""
-Authentication should be outsourced and User Models Should be updated before pushing to production
+# Base Class for the Views Test Cases - declares protected variables accessable by any child case
+class ViewTestBase(APITestCase):
 
-Current Strategy is to use this temporary user model to build new features into the application.
+    def setUp(self):
+        # Define Urls for testing api
+        # https://www.django-rest-framework.org/api-guide/routers/#:~:text=The%20example%20above,Name%3A%20%27user-list%27
+        self.user_url = reverse('user-list')
+        self.group_url = reverse('group-list')
 
-No Further Test Cases should be created until refactor
-"""
+        # Example User data
+        self.example_user_data = {
+            'email': 'example@gmail.com',
+            'username': 'example_username',
+            'password': 'example_password'
+        }
+        return super().setUp()
+
+    # defer to APITestCase destruction
+    def tearDown(self):
+        return super().tearDown()
 
 
-class TestUserViewset(TestSetUp):
-
+class TestUserViewset(ViewTestBase):
     def test_user_list_get_no_auth_blank(self):
+        ic("Running user list no auth get case....")
         # should return forbiddden as unauthorized user cannot view other users
         response = self.client.get(self.user_url)
         self.assertEqual(response.status_code, 403)
-
-    def test_user_list_post_no_auth_blank(self):
-        # should return not found as no new user data was provided
-        response = self.client.post(self.user_url)
-        self.assertEqual(response.status_code, 400)
-
-    # def post_user_list_After_authentication(self):
-    #     response = self.client.post(self.user_url, data=self.example_user_data)
-    #     self.assertEqual(response.status_code, 200)
-    #     print(response.content)
-
-
-"""
-
-Un-implemented Test Case Parameters
-
-Authorization Status: [AUTHENTICATED, UN-AUTHENTICATED]
-Group Privilage: [ADMIN, USER, STAFF]
-
-View: [LIST, EXISTING_DETAIL, NEW_DETAIL]
-
-Method Type: [GET, POST, UPDATE]
-Post Data: [NEW_USER, USER_LIST, EXISTING_USER, INVALID_EMAIL, EXISTING_EMAIL, VALID_PASS, INVALID_PASS]
-
-"""
