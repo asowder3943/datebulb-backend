@@ -2,3 +2,4 @@
 *.pyc
 migrations/
 .DS_Store
+*.code-workspace
