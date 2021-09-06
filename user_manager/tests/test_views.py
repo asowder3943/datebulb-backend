@@ -9,7 +9,6 @@ class ViewTestBase(APITestCase):
         # Define Urls for testing api
         # https://www.django-rest-framework.org/api-guide/routers/#:~:text=The%20example%20above,Name%3A%20%27user-list%27
         self.user_url = reverse('user-list')
-        self.group_url = reverse('group-list')
 
         # Example User data
         self.example_user_data = {
