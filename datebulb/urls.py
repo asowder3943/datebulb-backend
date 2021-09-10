@@ -1,12 +1,21 @@
+from django.contrib import admin
+
+
 from django.urls import include, path
 from rest_framework import routers
-from user_manager.views import *
+
 from idea_manager import views as idea_views
+from user_manager.views import UserDetailView
+
+from allauth.account.views import confirm_email
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
 router.register(r'dateideas', idea_views.DateIdeaViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('admin/', admin.site.urls),
+    path('auth/', include('dj_rest_auth.urls')),
+    path('auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('me/', UserDetailView.as_view())    
 ]
