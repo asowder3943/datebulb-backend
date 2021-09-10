@@ -5,7 +5,6 @@ from rest_framework import permissions
 from idea_manager.serializers import DateIdeaSerializer
 from idea_manager.models import DateIdea
 from idea_manager.permissions import IsOwner
-# Create your views here.
 
 class DateIdeaViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
