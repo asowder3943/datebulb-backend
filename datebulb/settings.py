@@ -68,7 +68,7 @@ WSGI_APPLICATION = 'datebulb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv('DB_NAME'),
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
