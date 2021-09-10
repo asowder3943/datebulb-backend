@@ -1,10 +1,9 @@
-from django.shortcuts import render
-from rest_framework import generics
 from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from idea_manager.serializers import DateIdeaSerializer
 from idea_manager.models import DateIdea
-from idea_manager.permissions import IsOwner
+from user_manager.permissions import IsOwner
+
 
 class DateIdeaViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
@@ -12,5 +11,10 @@ class DateIdeaViewSet(viewsets.ModelViewSet):
 
     queryset = DateIdea.objects.all().order_by('-created_date')
     serializer_class = DateIdeaSerializer
-    permission_classes = [IsOwner]
 
+    def get_permissions(self):
+        if self.request.method == "GET":
+            return [IsOwner()]
+        elif self.request.method == "POST":
+            return [IsAuthenticated()]
+        return [permission() for permission in self.permission_classes]
