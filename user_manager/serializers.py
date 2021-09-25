@@ -1,10 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-
 class UserSerializer(serializers.ModelSerializer):
 
-    # take plain text as input, but store passwords as hashes
     def create(self, validated_data):
         if "password" in validated_data:
             from django.contrib.auth.hashers import make_password
