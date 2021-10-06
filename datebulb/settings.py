@@ -16,6 +16,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 INSTALLED_APPS = [
     'user_manager',
     'idea_manager',
+    'event_manager',
     
     'django.contrib.admin',
     'django.contrib.auth',
