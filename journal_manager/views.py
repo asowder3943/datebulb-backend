@@ -5,7 +5,7 @@ from idea_manager.models import DateIdea
 from user_manager.permissions import IsOwner
 
 
-class DateIdeaViewSet(viewsets.ModelViewSet):
+class JournalViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 

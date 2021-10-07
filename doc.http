@@ -14,10 +14,10 @@ POST http://127.0.0.1:8000/auth/registration/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username":"testmeister",
-    "email":"testmeister@gmail.com",
-    "password1":"l;asdkfj12!",
-    "password2":"l;asdkfj12!"
+    "username":"gdog",
+    "email":"gdog@gmail.com",
+    "password1":"big_gdog12!",
+    "password2":"big_gdog12!"
 }
 
 # retrieved key
@@ -39,4 +39,4 @@ Content-Type: application/json
 ### User Detail View
 GET http://127.0.0.1:8000/me HTTP/1.1
 Content-Type: application/json
-Authorization: Token 47ea70209ed4e1d1ba90eb7410baf99c22b146ea
+Authorization: Token 054d7eb4f36165cc2443ad620ae0cfc6f0a002c8
