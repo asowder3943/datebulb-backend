@@ -5,7 +5,8 @@ from event_manager.models import Event
 
 class EventViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
-        serializer.save(participants=self.request.data.get('participants'),
+        serializer.save(owner=self.request.user,
+                        participants=self.request.data.get('participants'),
                         ideas=self.request.data.get('ideas'))
 
     queryset = Event.objects.all().order_by('-start_time')

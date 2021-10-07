@@ -59,35 +59,50 @@ Content-Type: application/json
 #   "key": "[EXAMPLE_KEY]"
 #   "key": "d07b890c5cfe619a011b2bed5eb22b33b0f779a5"
 
-### Ideas
-# retrieved key
-# "key": "08cd482f31f7309f12cbc81eb72be28c3afc3a19"
+### Idea1
+# use alices account to create a dinner idea
 POST http://127.0.0.1:8000/ideas/ HTTP/1.1
 Content-Type: application/json
 Authorization: Token d07b890c5cfe619a011b2bed5eb22b33b0f779a5
 
 {
     "description":"dinner",
-    "location":"sushi place3"
+    "location":"sushi place"
 }
 
-### Events View
-POST http://127.0.0.1:8000/events/ HTTP/1.1
+### Idea2
+# use bobs account to create an activity idea
+POST http://127.0.0.1:8000/ideas/ HTTP/1.1
 Content-Type: application/json
-Authorization: Token a5344725ea7e70ba9da4f41839dd22bb9c895b68
+Authorization: Token b7f85bb65c28146af3b767d7d8c23690c312ed02
 
 {
-    "ideas":["1"],
-    "start_time":"2021-10-05 18:00:00",
-    "end_time":"2021-10-05 19:15:00",
-    "participants":["1"]
+    "description":"friendly competition",
+    "location":"foot race at the trail"
+}
+
+### Idea3
+# use alices account to create a dessert idea
+POST http://127.0.0.1:8000/ideas/ HTTP/1.1
+Content-Type: application/json
+Authorization: Token d07b890c5cfe619a011b2bed5eb22b33b0f779a5
+
+{
+    "description":"dessert",
+    "location":"yogurt at the frog place"
 }
 
 
-## LOGIN VIEWS
-# send login request
-# retrieved key
-# "key": "08cd482f31f7309f12cbc81eb72be28c3afc3a19"
 
+### Events View
+# create an event where alice and bob use all 3 ideas
+POST http://127.0.0.1:8000/events/ HTTP/1.1
+Content-Type: application/json
+Authorization: Token d07b890c5cfe619a011b2bed5eb22b33b0f779a5
 
-
+{
+    "ideas":["5", "6", "7"],
+    "start_time":"2021-10-05 18:00:00",
+    "end_time":"2021-10-05 19:15:00",
+    "participants":["1", "2"]
+}
