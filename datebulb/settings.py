@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'user_manager',
     'idea_manager',
     'journal_manager',
+    'event_manager',
 
     'django.contrib.admin',
     'django.contrib.auth',
