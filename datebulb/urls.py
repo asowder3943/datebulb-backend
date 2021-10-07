@@ -13,6 +13,7 @@ from allauth.account.views import confirm_email
 router = routers.DefaultRouter()
 router.register(r'dateideas', idea_views.DateIdeaViewSet)
 router.register(r'events', event_views.EventViewSet)
+router.register(r'images', event_views.EventViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
