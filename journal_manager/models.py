@@ -5,7 +5,7 @@ from event_manager.models import Event
 
 
 class JournalImage(models.Model):
-    image = ImageField()
+    image = ImageField(upload_to='journal_images')
 
 
 class Journal(models.Model):
