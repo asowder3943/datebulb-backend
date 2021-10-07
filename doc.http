@@ -1,6 +1,8 @@
 # Use the vscode rest client extension to run these example requests
 # extension id humao.rest-client
 
+# instructions assume running from completely clean db
+
 
 ### Root POST
 POST http://127.0.0.1:8000/ HTTP/1.1
@@ -9,52 +11,64 @@ POST http://127.0.0.1:8000/ HTTP/1.1
 GET http://127.0.0.1:8000/ HTTP/1.1
 
 
-### Registration
+### Registration1
+# create user 1
 POST http://127.0.0.1:8000/auth/registration/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username":"gdog",
-    "email":"gdog@gmail.com",
-    "password1":"big_gdog12!",
-    "password2":"big_gdog12!"
+    "username":"alice123",
+    "email":"alice123@gmail.com",
+    "password1":"bad_pass_alice12!",
+    "password2":"bad_pass_alice12!"
 }
 
-# retrieved key
-# "key": "47ea70209ed4e1d1ba90eb7410baf99c22b146ea"
+# paste user1 registration key below for comparison
+#   "key": "[EXAMPLE_KEY]"
+#   "key": "d07b890c5cfe619a011b2bed5eb22b33b0f779a5"
+
+
+### Registration2
+# create user 1
+POST http://127.0.0.1:8000/auth/registration/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"bob123",
+    "email":"bob123@gmail.com",
+    "password1":"bad_pass_bob12!",
+    "password2":"bad_pass_bob12!"
+}
+
+# paste user1 registration key below for comparison
+#   "key": "[EXAMPLE_KEY]"
+#   "key": "b7f85bb65c28146af3b767d7d8c23690c312ed02"
 
 
 ### Login
+# test login of user1
 POST http://127.0.0.1:8000/auth/login/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username":"testmeister",
-    "password":"l;asdkfj12!"
+    "username":"alice123",
+    "password":"bad_pass_alice12!"
 }
 
+# paste user1 login key below for comparison (should match registration key)
+#   "key": "[EXAMPLE_KEY]"
+#   "key": "d07b890c5cfe619a011b2bed5eb22b33b0f779a5"
+
+### Ideas
 # retrieved key
-# "key": "a5344725ea7e70ba9da4f41839dd22bb9c895b68"
-
-### User Detail View
-GET http://127.0.0.1:8000/me HTTP/1.1
+# "key": "08cd482f31f7309f12cbc81eb72be28c3afc3a19"
+POST http://127.0.0.1:8000/ideas/ HTTP/1.1
 Content-Type: application/json
-<<<<<<< HEAD
-Authorization: Token 054d7eb4f36165cc2443ad620ae0cfc6f0a002c8
-=======
-Authorization: Token a5344725ea7e70ba9da4f41839dd22bb9c895b68
-
-### Create One DateIdea
-
-POST http://127.0.0.1:8000/dateideas/ HTTP/1.1
-Content-Type: application/json
-Authorization: Token a5344725ea7e70ba9da4f41839dd22bb9c895b68
+Authorization: Token d07b890c5cfe619a011b2bed5eb22b33b0f779a5
 
 {
-    "owner":"1",
-    "created_date":"2021-10-05 18:00:00",
     "description":"dinner",
-    "location":"sushi place"
+    "location":"sushi place3"
 }
 
 ### Events View
@@ -68,3 +82,12 @@ Authorization: Token a5344725ea7e70ba9da4f41839dd22bb9c895b68
     "end_time":"2021-10-05 19:15:00",
     "participants":["1"]
 }
+
+
+## LOGIN VIEWS
+# send login request
+# retrieved key
+# "key": "08cd482f31f7309f12cbc81eb72be28c3afc3a19"
+
+
+

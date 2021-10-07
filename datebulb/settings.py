@@ -14,7 +14,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
-    'user_manager',
     'idea_manager',
     'journal_manager',
     'event_manager',
