@@ -5,3 +5,4 @@ migrations/
 *.code-workspace
 .env
 env/
+media/

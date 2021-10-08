@@ -10,6 +10,7 @@ defusedxml==0.7.1
 dj-rest-auth==2.1.11
 Django==3.2.6
 django-allauth==0.45.0
+django-extra-fields==3.0.2
 djangorestframework==3.12.4
 dnspython==1.16.0
 executing==0.8.0
