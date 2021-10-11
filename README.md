@@ -12,9 +12,15 @@ We hope that the application's friendly, colorful interface and positive messagi
 
 # The Team
 
-**Needs Implementation**
+_As longtime friends, teamates, and sometimes coworkers we have been learning and tackling projects together since 2014._
 
-# Backend Technologies
+| Project Role             | Name          | Current Main Profession                                                                                           |
+| ------------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Backend Python Developer | Jon Huggins   | ([LinkedIn](https://www.linkedin.com/in/jonathan-huggins-78371a170/)) - Student at Virginia Tech                  |
+| Frontend React UI        | Mathew Hudson | ([LinkedIn](https://www.linkedin.com/in/matthew-hudson-b562b1175/)) - Senior in Computer Science at Virginia Tech |
+| Operations / Full Stack  | Adam Sowder   | ([LinkedIn](https://www.linkedin.com/in/adam-sowder/)) - Healthcare IT Technician for UVA Medical Center          |
+
+## Backend Technologies
 
 The backend of the datebulb application consists of a restful django API. The current build targets a MongoDB noSQL database.
 
