@@ -1,16 +1,17 @@
 from pathlib import Path
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
+# import os
+import django_heroku
 
-load_dotenv()
+# load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('DJANGO_SECRET')
+SECRET_KEY = 'o7m6r49i+_^4b#eb5z7wipj9+s9gm(ao&po5hqcgzv*tie0^4z'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -66,22 +67,27 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'datebulb.wsgi.application'
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'),
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': os.getenv('DB_IP'),
-            'port': int(os.getenv('DB_PORT')),
-            'username': os.getenv('DB_USER'),
-            'password': os.getenv('DB_PASS'),
-            'authSource': os.getenv('DB_AUTH'),
-            'authMechanism': 'SCRAM-SHA-1'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('DB_NAME'),
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             'host': os.getenv('DB_IP'),
+#             'port': int(os.getenv('DB_PORT')),
+#             'username': os.getenv('DB_USER'),
+#             'password': os.getenv('DB_PASS'),
+#             'authSource': os.getenv('DB_AUTH'),
+#             'authMechanism': 'SCRAM-SHA-1'
+#         }
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -117,7 +123,6 @@ REST_FRAMEWORK = {
 
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
+django_heroku.settings(locals())
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
