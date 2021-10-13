@@ -66,22 +66,27 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'datebulb.wsgi.application'
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'),
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': os.getenv('DB_IP'),
-            'port': int(os.getenv('DB_PORT')),
-            'username': os.getenv('DB_USER'),
-            'password': os.getenv('DB_PASS'),
-            'authSource': os.getenv('DB_AUTH'),
-            'authMechanism': 'SCRAM-SHA-1'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('DB_NAME'),
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             'host': os.getenv('DB_IP'),
+#             'port': int(os.getenv('DB_PORT')),
+#             'username': os.getenv('DB_USER'),
+#             'password': os.getenv('DB_PASS'),
+#             'authSource': os.getenv('DB_AUTH'),
+#             'authMechanism': 'SCRAM-SHA-1'
+#         }
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
