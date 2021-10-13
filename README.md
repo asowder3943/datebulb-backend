@@ -22,7 +22,7 @@ _As longtime friends, teamates, and sometimes coworkers we have been learning an
 
 ## Backend Technologies
 
-The backend of the datebulb application consists of a restful django API. The current build targets a MongoDB noSQL database.
+The backend of the datebulb application consists of a restful django API.
 
 # Current State of the Project
 
