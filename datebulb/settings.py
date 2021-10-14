@@ -1,13 +1,14 @@
 from pathlib import Path
-# from dotenv import load_dotenv
 import os
 import django_heroku
+from dotenv import load_dotenv
 
-# load_dotenv()
+if not os.getenv('PROD'):
+    load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'o7m6r49i+_^4b#eb5z7wipj9+s9gm(ao&po5hqcgzv*tie0^4z'
+SECRET_KEY = os.getenv("DJANGO_SECRET")
 
 DEBUG = True
 
@@ -70,8 +71,17 @@ WSGI_APPLICATION = 'datebulb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': os.getenv('DB_IP'),
+            'port': int(os.getenv('DB_PORT')),
+            'username': os.getenv('DB_USER'),
+            'password': os.getenv('DB_PASS'),
+            'authSource': os.getenv('DB_AUTH'),
+            'authMechanism': 'SCRAM-SHA-1'
+        }
     }
 }
 
@@ -79,21 +89,6 @@ import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.getenv('DB_NAME'),
-#         'ENFORCE_SCHEMA': False,
-#         'CLIENT': {
-#             'host': os.getenv('DB_IP'),
-#             'port': int(os.getenv('DB_PORT')),
-#             'username': os.getenv('DB_USER'),
-#             'password': os.getenv('DB_PASS'),
-#             'authSource': os.getenv('DB_AUTH'),
-#             'authMechanism': 'SCRAM-SHA-1'
-#         }
-#     }
-# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
