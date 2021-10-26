@@ -129,3 +129,7 @@ Authorization: Token d07b890c5cfe619a011b2bed5eb22b33b0f779a5
     "images":["4"],
     "events":["1"]
 }
+### Root GET
+GET https://datebulb-backend.herokuapp.com/dashboard/ HTTP/1.1
+Content-Type: application/json
+Authorization: Token d07b890c5cfe619a011b2bed5eb22b33b0f779a5
