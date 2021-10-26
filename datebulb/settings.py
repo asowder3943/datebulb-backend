@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
-    'dj_rest_auth'
+    'dj_rest_auth',
+
+    'drf_multiple_model'
 ]
 
 MIDDLEWARE = [
@@ -132,6 +134,6 @@ REST_FRAMEWORK = {
 
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
