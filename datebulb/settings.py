@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     # REST Framework
     'rest_framework',
     'rest_framework.authtoken',
-    'dj_rest_auth'
+    'dj_rest_auth',
+    'drf_multiple_model'
 ]
 
 # Default middlewares
@@ -169,6 +170,5 @@ SITE_ID = 1
 
 # default email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # load heroku settings required in production
 django_heroku.settings(locals())
