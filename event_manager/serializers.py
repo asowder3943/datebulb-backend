@@ -2,7 +2,6 @@ from rest_framework import serializers
 from event_manager.models import Event
 from idea_manager.serializers import DateIdeaSerializer
 
-
 class EventSerializer(serializers.ModelSerializer):
 
     owner = serializers.ReadOnlyField(source='owner.username')
