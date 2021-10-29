@@ -16,7 +16,7 @@ class JournalSerializer(serializers.ModelSerializer):
     shared = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     created_date = serializers.DateTimeField(required=False)
     message = serializers.CharField()
-    images = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    images = ImageSerializer(many=True, read_only=True)
 
     class Meta:
         model = Journal
