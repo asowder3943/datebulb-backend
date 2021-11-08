@@ -10,6 +10,7 @@ from journal_manager.serializers import JournalSerializer
 from drf_multiple_model.views import ObjectMultipleModelAPIView
 from drf_multiple_model.pagination import MultipleModelLimitOffsetPagination
 
+
 class DashboardView(ObjectMultipleModelAPIView):
     pagination_class = None
 
@@ -18,9 +19,12 @@ class DashboardView(ObjectMultipleModelAPIView):
         user = self.request.user
         print(user.id)
         querylist = [
-            {'queryset': Event.objects.filter(participants__id = user.id), 'serializer_class': EventSerializer},
-            {'queryset': DateIdea.objects.filter(owner=user), 'serializer_class': DateIdeaSerializer},
-            {'queryset': Journal.objects.filter(owner=user), 'serializer_class': JournalSerializer}
+            {'queryset': Event.objects.filter(
+                participants__id=user.id), 'serializer_class': EventSerializer},
+            {'queryset': DateIdea.objects.filter(
+                owner=user), 'serializer_class': DateIdeaSerializer},
+            {'queryset': Journal.objects.filter(
+                owner=user), 'serializer_class': JournalSerializer}
 
         ]
         return querylist
