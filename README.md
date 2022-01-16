@@ -29,7 +29,7 @@ The backend of the datebulb application consists of a restful django API.
 The First version of the datbulb restful API is still being built. A more detailed view of the projects status can be viewed at the prototyping project board:
 
 https://github.com/asowder3943/datebulb-backend/projects/1
-
+<!-- 
 # Contribution Guide
 
 Datebulb, in addition to being user facing application, is indeed a resume project.
@@ -75,4 +75,4 @@ git commit -m "<useful commit message>"
 
 1. No pull requests should be made without first creating an issue to document the original intent of the changes
 2. Branch Names should be named after the issue they are addressing.
-3. All issues should be able to be resolved in one coding session. Unless they are created to document major bugs. If a issues is created that is too large to be completed in one pull request, then sub issues should be created that reference that larger issue in the description.
+3. All issues should be able to be resolved in one coding session. Unless they are created to document major bugs. If a issues is created that is too large to be completed in one pull request, then sub issues should be created that reference that larger issue in the description. -->
